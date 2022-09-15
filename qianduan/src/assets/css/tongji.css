@@ -1,0 +1,130 @@
+.Sidebar {
+    color: #356096;
+  }
+  
+  .sidebar_inner {
+    border-bottom: 3.5px solid #356096;
+    box-sizing: border-box;
+  }
+  
+  #app {
+    display: flex;
+    height: 100vh;
+    background-color: rgb(234, 234, 234);
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tong_body {
+    width: 88%;
+    height: 555px;
+    display: flex;
+    padding: 12px;
+    border-radius: 10px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    margin-top: -150px;
+  }
+  
+  .tong_a {
+    display: flex;
+    height: 60px;
+  }
+  
+  .a_l {
+    flex: 1.5;
+    font-size: 18px;
+    line-height: 64px;
+  }
+  
+  .a_r {
+    flex: 4;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .a_r1 {
+    width: 110px;
+    overflow: hidden;
+  }
+  
+  .a_r2 {
+    width: 110px;
+    overflow: hidden;
+  }
+  
+  .tong_b {
+    height: 30px;
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .tong_img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .tong_c {
+    height: 40px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-color: #ebebeb;
+  }
+  
+  .tong_d {
+    height: 440px;
+  }
+  
+  .tong_c>div {
+    float: left;
+    line-height: 35px;
+    text-align: center;
+  }
+  
+  .tong_c>div:nth-child(1) {
+    width: 72px;
+  }
+  
+  .tong_c>div:nth-child(3) {
+    width: 66px;
+  }
+  
+  .tong_c>div:hover {
+    color: #356096;
+    border-bottom: 3.5px solid #356096;
+  }
+  
+  .tong_biao {
+    width: 100vw;
+    height: 229px;
+    background: linear-gradient(to bottom, #225385, #949faa);
+    border-radius: 0% 0% 90% 90%/0% 0% 40% 40%;
+  }
+  
+  .ss1 {
+    height: 62px;
+    display: flex;
+    color: white;
+  }
+  
+  .ss1>div {
+    flex: 1;
+  }
+  
+  .ff1 {
+    margin-left: 13px;
+    margin-top: 24px;
+    transform: rotate(-180deg);
+  }
+  
+  .zi_tou1 {
+    line-height: 80px;
+    font-family: "Microsoft YaHei";
+    font-size: 20px;
+    text-align: center;
+  }
