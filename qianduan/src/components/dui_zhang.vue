@@ -64,7 +64,7 @@
   <script>
 export default {
   created(){
-    this.$http.post("http://192.168.0.135:3000/get_bill",{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=>{
+    this.$http.post("http://localhost:3000/get_bill",{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=>{
       this.tableData = res.data.value
       console.log(res.data.value);
     })

@@ -112,13 +112,13 @@
 export default {
   created() {
     this.$http
-      .post("http://192.168.0.135:3000/get_user_info", {
+      .post("http://localhost:3000/get_user_info", {
         user_acc: JSON.parse(sessionStorage.getItem("user"))[0].user_acc,
       })
       .then((res) => {
         this.msg = res.data.value[0];
         // console.log(this.msg);
-        this.src = `http://192.168.0.135:3000/img/${res.data.value[0].user_img}.jpg`
+        this.src = `http://localhost:3000/img/${res.data.value[0].user_img}.jpg`
       });
     this.items = this.$route.params.item;
     this.status = Vue.prototype.$status
@@ -200,12 +200,12 @@ export default {
       
       
       this.$http
-        .post("http://192.168.0.135:3000/user_info", fd)
+        .post("http://localhost:3000/user_info", fd)
         .then((res) => {
           // this.msg = res.data.value
           console.log(res.data);
           this.$http
-            .post("http://192.168.0.135:3000/get_user_info", {
+            .post("http://localhost:3000/get_user_info", {
               user_acc: JSON.parse(sessionStorage.getItem("user"))[0].user_acc,
             })
             .then((res) => {

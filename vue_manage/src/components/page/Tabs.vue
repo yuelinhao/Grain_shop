@@ -137,7 +137,7 @@ export default {
         getData() {
             axios({
                 method: 'GET',
-                url: 'http://192.168.0.135:3000/o_selectAll_b'
+                url: 'http://localhost:3000/o_selectAll_b'
             }).then((val) => {
                 console.log(val);
                 this.tableData = val.data.value;
@@ -148,7 +148,7 @@ export default {
         handleSearch() {
             axios({
                 method:'POST',
-                url:'http://192.168.0.135:3000/o_select_id',
+                url:'http://localhost:3000/o_select_id',
                 data:{
                     o_id:this.query.id
                 }
@@ -170,7 +170,7 @@ export default {
             }
             axios({
                 method:'POST',
-                url:'http://192.168.0.135:3000/o_delete',
+                url:'http://localhost:3000/o_delete',
                 data:{
                      o_id_arr: JSON.stringify(arr)
                 }
@@ -191,7 +191,7 @@ export default {
                     let arr = [row.o_id];
                     axios({
                         method: 'POST',
-                        url: 'http://192.168.0.135:3000/o_delete',
+                        url: 'http://localhost:3000/o_delete',
                         data: {
                             o_id_arr: JSON.stringify(arr)
                         }
@@ -213,7 +213,7 @@ export default {
               .then(() => {
                   axios({
                       method:'POST',
-                      url:'http://192.168.0.135:3000/o_shipped',
+                      url:'http://localhost:3000/o_shipped',
                       data:{
                           o_id: row.o_id,
                           o_status: 2

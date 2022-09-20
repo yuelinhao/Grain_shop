@@ -33,7 +33,7 @@
             </div>
             <div class="list1_center">
               <div class="list1_center_left">
-                <img :src="'http://192.168.0.135:3000/img/'+item.g_img+'.jpg'" alt="" />
+                <img :src="'http://localhost:3000/img/'+item.g_img+'.jpg'" alt="" />
               </div>
               <div class="list1_center_right">
                 <div class="name p">
@@ -97,7 +97,7 @@
 export default {
   created() {
     this.$http
-      .post("http://192.168.0.135:3000/get_shop_car", { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc })
+      .post("http://localhost:3000/get_shop_car", { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc })
       .then((res) => {
         this.goods_list = res.data.value;
         res.data.value.forEach(() => {
@@ -188,7 +188,7 @@ export default {
       if (item.g_number <= 1) {
       } else {
         this.goods_list[index].g_number--;
-        this.$http.post("http://192.168.0.135:3000/re_shop_car", {
+        this.$http.post("http://localhost:3000/re_shop_car", {
           user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
           g_name: item.g_name,
           g_number: this.goods_list[index].g_number,
@@ -198,7 +198,7 @@ export default {
     // 加
     jia_fn(index) {
       this.goods_list[index].g_number++;
-      this.$http.post("http://192.168.0.135:3000/re_shop_car", {
+      this.$http.post("http://localhost:3000/re_shop_car", {
         user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
         g_name: this.goods_list[index].g_name,
         g_number: this.goods_list[index].g_number,
@@ -232,7 +232,7 @@ export default {
       }
     },
     // this.$http
-    //       .post("http://192.168.0.135:3000/get_user_info", {
+    //       .post("http://localhost:3000/get_user_info", {
     //         user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
     //       })
     //       .then((res) => {
@@ -240,7 +240,7 @@ export default {
     //         console.log(this.total_price);
     //         if (res.data.value[0].user_money >= this.total_price) {
     //           this.$http
-    //             .post("http://192.168.0.135:3000/", {
+    //             .post("http://localhost:3000/", {
     //               user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
     //               user_money: res.data.value[0].user_money - this.total_price,
     //             })
@@ -258,7 +258,7 @@ export default {
         }
       }
       this.$http
-        .post("http://192.168.0.135:3000/delete_shop_car", {
+        .post("http://localhost:3000/delete_shop_car", {
           user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
           g_name_arr: JSON.stringify(g_name_arr),
         })
@@ -266,7 +266,7 @@ export default {
           if (res.data.msg == "删除成功") {
             this.o_index = [];
             this.$http
-              .post("http://192.168.0.135:3000/get_shop_car", {
+              .post("http://localhost:3000/get_shop_car", {
                 user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
               })
               .then((res) => {

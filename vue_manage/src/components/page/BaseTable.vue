@@ -35,7 +35,7 @@
                         <!-- <el-image class="table-td-thumb" src="./imgs/1.PNG" :preview-src-list="[scope.row.thumb]"> </el-image> -->
                         <el-image
                             class="table-td-thumb"
-                            :src="`http://192.168.0.135:3000/img/${[scope.row.g_img]}.jpg`"
+                            :src="`http://localhost:3000/img/${[scope.row.g_img]}.jpg`"
                             :preview-src-list="[scope.row.g_img]"
                         >
                         </el-image>
@@ -165,7 +165,7 @@ export default {
             // });
             axios({
                 method: 'GET',
-                url: 'http://192.168.0.135:3000/all_goods'
+                url: 'http://localhost:3000/all_goods'
             }).then((val) => {
                 console.log(val);
                 this.tableData = val.data.value;
@@ -176,7 +176,7 @@ export default {
         handleSearch() {
             axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/s_goods_name',
+                url: 'http://localhost:3000/s_goods_name',
                 data: {
                     g_name: this.query.name
                 }
@@ -195,7 +195,7 @@ export default {
                     let arr = [row.g_bianhao];
                     axios({
                         method: 'POST',
-                        url: 'http://192.168.0.135:3000/re_goods',
+                        url: 'http://localhost:3000/re_goods',
                         data: {
                             g_bianhao_arr: JSON.stringify(arr)
                         }
@@ -219,7 +219,7 @@ export default {
             }
             axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/re_goods',
+                url: 'http://localhost:3000/re_goods',
                 data: {
                     g_bianhao_arr: JSON.stringify(arr)
                 }
@@ -248,7 +248,7 @@ export default {
 
             axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/m_goods',
+                url: 'http://localhost:3000/m_goods',
                 data: {
                     g_price: this.form.money,
                     g_num: this.form.stock,

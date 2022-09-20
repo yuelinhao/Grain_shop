@@ -44,14 +44,14 @@ export default {
   name: "search",
   created() {
     // 历史记录
-    this.$http.post('http://192.168.0.135:3000/get_history',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
+    this.$http.post('http://localhost:3000/get_history',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
       res.data.value.forEach((res)=> {
         this.history.unshift(res.history)
       })
     })
     this.$http({
         method: "GET",
-        url:"http://192.168.0.135:3000/all_goods",
+        url:"http://localhost:3000/all_goods",
       }).then((res)=> {
         let infoAll = res.data.value
         let info = []
@@ -112,7 +112,7 @@ export default {
       let info = res||this.$refs.reference.value
       this.$http({
         method:"POST",
-        url:"http://192.168.0.135:3000/s_goods_name",
+        url:"http://localhost:3000/s_goods_name",
         data:{g_type:info}
       }).then((res)=> {
         if(res.data.value.length >= 1) {
@@ -122,7 +122,7 @@ export default {
           // 添加到历史记录
           this.$http({
             method: "POST",
-            url:"http://192.168.0.135:3000/add_history",
+            url:"http://localhost:3000/add_history",
             data:{
               user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
               search_info:info
@@ -136,7 +136,7 @@ export default {
     },
     // 删除历史记录
     delete_fn() {
-      this.$http.post('http://192.168.0.135:3000/delete_history',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc})
+      this.$http.post('http://localhost:3000/delete_history',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc})
       this.history = []
     },
  

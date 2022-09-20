@@ -26,7 +26,7 @@
               </div> -->
               <div class="list1_center">
                 <div class="list1_center_left">
-                  <img :src="'http://192.168.0.135:3000/img/' + item.g_img + '.jpg'" alt="">
+                  <img :src="'http://localhost:3000/img/' + item.g_img + '.jpg'" alt="">
                 </div>
                 <div class="list1_center_right">
                   <div class="name p"><span>{{item.g_name}}</span></div>
@@ -66,7 +66,7 @@
   <script>
     export default {
       created() {
-        this.$http.post('http://192.168.0.135:3000/get_collect',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
+        this.$http.post('http://localhost:3000/get_collect',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
           this.goods_list = res.data.value
         })
       },

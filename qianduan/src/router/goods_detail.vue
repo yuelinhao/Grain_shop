@@ -20,7 +20,7 @@
                 <el-carousel-item v-for="(item, index) in list" :key="index">
                   <img
                     :src="
-                      'http://192.168.0.135:3000/goods_imgs/' +
+                      'http://localhost:3000/goods_imgs/' +
                       item.g_img_lun +
                       '.jpg'
                     "
@@ -69,7 +69,7 @@
           </div>
           <div class="datail_center_xia_img">
             <img
-              :src="'http://192.168.0.135:3000/g_imgs_xinxi/' + tist + '.jpg'"
+              :src="'http://localhost:3000/g_imgs_xinxi/' + tist + '.jpg'"
               alt=""
             />
           </div>
@@ -120,12 +120,12 @@ export default {
   created() {
     let { detail } = this.$route.params;
     this.detail = detail;
-    this.$http.post('http://192.168.0.135:3000/s_goods_name',{g_type:detail.g_name}).then((res)=> {
+    this.$http.post('http://localhost:3000/s_goods_name',{g_type:detail.g_name}).then((res)=> {
       this.image_t = res.data.value[0].isCollect
     })
     // this.image_t = detail.isCollect
     this.tist = detail.g_img_xinxi
-    this.$http.post('http://192.168.0.135:3000/get_imgs_lunbo',{g_name:detail.g_name}).then((res)=> {
+    this.$http.post('http://localhost:3000/get_imgs_lunbo',{g_name:detail.g_name}).then((res)=> {
       this.list = res.data.value
     })
   },
@@ -165,9 +165,9 @@ export default {
     tianjia() {
       if(sessionStorage.getItem('user')) {
         if(this.image_t == 0) {
-          this.$http.post('http://192.168.0.135:3000/add_collect',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,g_name:this.detail.g_name})
+          this.$http.post('http://localhost:3000/add_collect',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,g_name:this.detail.g_name})
         } else {
-          this.$http.post('http://192.168.0.135:3000/cancel_collect',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,g_name:this.detail.g_name})
+          this.$http.post('http://localhost:3000/cancel_collect',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,g_name:this.detail.g_name})
         }
         this.image_t = this.image_t ? 0 : 1;
       }else {

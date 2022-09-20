@@ -106,7 +106,7 @@ export default {
                 if (valid) {
                     axios({
                       method: 'POST',
-                      url: 'http://192.168.0.135:3000/b_login',
+                      url: 'http://localhost:3000/b_login',
                       data: {
                         account: this.param.username,
                         password: this.param.password
@@ -156,7 +156,7 @@ export default {
             if (valid) {
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/b_reg',
+                  url: 'http://localhost:3000/b_reg',
                   data: {
                     account: this.param.username,
                     password: this.param.password
@@ -188,7 +188,7 @@ export default {
             if (valid) {
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/hou_password',
+                  url: 'http://localhost:3000/hou_password',
                   data: {
                     account: this.param.username,
                     password: this.param.newPassword

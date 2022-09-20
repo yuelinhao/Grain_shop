@@ -24,7 +24,7 @@
   <script>
   export default {
     created() {
-      this.$http.post('http://192.168.0.135:3000/get_all_order',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
+      this.$http.post('http://localhost:3000/get_all_order',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
         this.tableData3 = res.data.value
       })
     },

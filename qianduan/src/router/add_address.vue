@@ -57,7 +57,7 @@ export default {
                 }, 1000),
                 arr.push(this.user_name, this.user_phone, this.user_sheng, this.user_addres)
                 let time = parseInt(new Date().getTime() / 1000) + '';
-                this.$http.post('http://192.168.0.135:3000/add_address',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,address_id:time, user_address:this.user_sheng, user_name:this.user_name, user_phone:this.user_phone, more_address:this.user_addres}).then((res)=> {
+                this.$http.post('http://localhost:3000/add_address',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,address_id:time, user_address:this.user_sheng, user_name:this.user_name, user_phone:this.user_phone, more_address:this.user_addres}).then((res)=> {
                     console.log(res)
                 })
             } else {

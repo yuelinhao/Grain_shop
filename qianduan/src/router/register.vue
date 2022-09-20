@@ -115,7 +115,7 @@ export default {
             this.$message.error("请确认密码相同");
             return;
           }
-          this.$http.post('http://192.168.0.135:3000/f_reg',{account:this.input,password:this.user.password}).then((res)=> {
+          this.$http.post('http://localhost:3000/f_reg',{account:this.input,password:this.user.password}).then((res)=> {
             if(res.data.msg == '注册成功') {
                 this.$message.success("注册成功");
                 setTimeout(() => {

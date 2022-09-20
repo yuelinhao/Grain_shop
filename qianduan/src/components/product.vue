@@ -32,7 +32,7 @@
           <div class="pro_bottom_box_list_img">
             <div>
               <img
-                :src="'http://192.168.0.135:3000/img/' + item.g_img + '.jpg'"
+                :src="'http://localhost:3000/img/' + item.g_img + '.jpg'"
                 alt=""
               />
             </div>
@@ -84,7 +84,7 @@ export default {
 
   methods: {
     zonhe() {
-      this.$http.get("http://192.168.0.135:3000/all_goods").then((res) => {
+      this.$http.get("http://localhost:3000/all_goods").then((res) => {
         // console.log(res.data.value);
         this.goods = res.data.value;
       });
@@ -102,13 +102,13 @@ export default {
         let num = this.xiaojiantou[index];
         if (num) {
           this.$http
-            .post("http://192.168.0.135:3000/s_goods_sort", { num })
+            .post("http://localhost:3000/s_goods_sort", { num })
             .then((res) => {
               this.goods = res.data.value;
             });
         } else {
           this.$http
-            .post("http://192.168.0.135:3000/s_goods_sort", { num })
+            .post("http://localhost:3000/s_goods_sort", { num })
             .then((res) => {
               this.goods = res.data.value;
             });
@@ -117,13 +117,13 @@ export default {
         let num = this.xiaojiantou[index];
         if (num) {
           this.$http
-            .post("http://192.168.0.135:3000/sort_goods", { num })
+            .post("http://localhost:3000/sort_goods", { num })
             .then((res) => {
               this.goods = res.data.value;
             });
         } else {
           this.$http
-            .post("http://192.168.0.135:3000/sort_goods", { num })
+            .post("http://localhost:3000/sort_goods", { num })
             .then((res) => {
               this.goods = res.data.value;
             });
@@ -131,7 +131,7 @@ export default {
       }
     },
     canshu() {
-      this.$http.get("http://192.168.0.135:3000/new_goods").then((res) => {
+      this.$http.get("http://localhost:3000/new_goods").then((res) => {
         this.goods = res.data.value;
       });
     },

@@ -77,7 +77,7 @@ export default {
         return;
       }
       this.$router.push({name: "balance"});
-      this.$http.post('http://192.168.0.135:3000/f_money',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_money:this.$refs.aa_a.value}).then((res)=> {
+      this.$http.post('http://localhost:3000/f_money',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_money:this.$refs.aa_a.value}).then((res)=> {
         // console.log(res)
       })
     },

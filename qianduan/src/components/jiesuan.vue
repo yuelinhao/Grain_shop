@@ -41,7 +41,7 @@
         <div class="two" v-for="(item, index) in shop_goods" :key="index">
           <div>
             <img
-              :src="'http://192.168.0.135:3000/img/' + item.g_img + '.jpg'"
+              :src="'http://localhost:3000/img/' + item.g_img + '.jpg'"
               alt=""
             />
           </div>
@@ -137,7 +137,7 @@ export default {
     this.number = number;
     // 订单个人信息
     this.$http
-      .post("http://192.168.0.135:3000/get_address", {
+      .post("http://localhost:3000/get_address", {
         user_acc: JSON.parse(sessionStorage.getItem("user"))[0].user_acc,
       })
       .then((res) => {
@@ -176,7 +176,7 @@ export default {
         g_arr.push({ g_name: item.g_name, g_number: item.g_number });
       });
       var o_id = sessionStorage.getItem('shijian')
-      this.$http.post("http://192.168.0.135:3000/o_wait_pay", {
+      this.$http.post("http://localhost:3000/o_wait_pay", {
         o_id,
         g_arr: JSON.stringify(g_arr),
         user_acc: JSON.parse(sessionStorage.getItem("user"))[0].user_acc,

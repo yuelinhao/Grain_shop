@@ -27,7 +27,7 @@
           <div class="list_x">
             <div class="list_l">
               <div class="img1">
-                <img :src="'http://192.168.0.135:3000/img/' + item.g_img + '.jpg'" alt="" />
+                <img :src="'http://localhost:3000/img/' + item.g_img + '.jpg'" alt="" />
               </div>
               <div class="list_imgr">
                 <span class="wu">{{ item.g_name }}</span>
@@ -101,7 +101,7 @@ export default {
         this.$message.success('已提醒发货')
       } else if(this.current == 3) {
         console.log('确认收货');
-        this.$http.post('http://192.168.0.135:3000/o_received',{o_id:item.o_id,o_status:3}).then((res)=> {
+        this.$http.post('http://localhost:3000/o_received',{o_id:item.o_id,o_status:3}).then((res)=> {
           this.$bus.$emit('isMain')
       })
       } else if (this.current == 4) {
@@ -115,12 +115,12 @@ export default {
       let url = 0
       if (cc == 0) {
         url = 'o_SelectAll'
-        this.$http.post('http://192.168.0.135:3000/' + url + '', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
+        this.$http.post('http://localhost:3000/' + url + '', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
           this.goods = res.data.value
         })
       } else {
         url = 'o_select'
-        this.$http.post('http://192.168.0.135:3000/' + url + '', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc, o_status: cc - 1 }).then((res) => {
+        this.$http.post('http://localhost:3000/' + url + '', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc, o_status: cc - 1 }).then((res) => {
           this.goods = res.data.value
         })
       }
@@ -132,11 +132,11 @@ export default {
   created() {
     let { isAll, type } = this.$route.params
     if (isAll) {
-      this.$http.post('http://192.168.0.135:3000/' + type + '', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
+      this.$http.post('http://localhost:3000/' + type + '', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
         this.goods = res.data.value
       })
     } else {
-      this.$http.post('http://192.168.0.135:3000/o_select', { o_status: type, user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
+      this.$http.post('http://localhost:3000/o_select', { o_status: type, user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
         this.goods = res.data.value
         this.current = (type - 0) + 1
       })

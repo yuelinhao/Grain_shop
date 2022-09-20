@@ -25,7 +25,7 @@
                 <el-table-column label="头像" align="center">
                     <template slot-scope="scope">
                         <!-- <el-image class="table-td-thumb" src="./imgs/1.PNG" :preview-src-list="[scope.row.thumb]"> </el-image> -->
-                        <el-image class="table-td-thumb" :src="`http://192.168.0.135:3000/img/${[scope.row.user_img]}.jpg`" :preview-src-list="[scope.row.user_img]">
+                        <el-image class="table-td-thumb" :src="`http://localhost:3000/img/${[scope.row.user_img]}.jpg`" :preview-src-list="[scope.row.user_img]">
                         </el-image>
                     </template>
                 </el-table-column>
@@ -110,7 +110,7 @@ export default {
          
          axios({
             method:'GET',
-            url:'http://192.168.0.135:3000/getAll_user_info',
+            url:'http://localhost:3000/getAll_user_info',
          }).then((val) =>{
           console.log(val);
             this.tableData = val.data.value
@@ -122,7 +122,7 @@ export default {
         handleSearch() {
             axios({
                 method:'POST',
-                url:'http://192.168.0.135:3000/select_user',
+                url:'http://localhost:3000/select_user',
                 data:{
                     user_name:this.query.zhanghao
                 }
@@ -141,7 +141,7 @@ export default {
                     let arr = [row.user_acc];
                     axios({
                         method: 'POST',
-                        url: 'http://192.168.0.135:3000/user_delete',
+                        url: 'http://localhost:3000/user_delete',
                         data: {
                             user_acc_arr: JSON.stringify(arr)
                         }
@@ -165,7 +165,7 @@ export default {
             }
             axios({
                 method:'POST',
-                url:'http://192.168.0.135:3000/user_delete',
+                url:'http://localhost:3000/user_delete',
                 data:{
                      user_acc_arr: JSON.stringify(arr)
                 }

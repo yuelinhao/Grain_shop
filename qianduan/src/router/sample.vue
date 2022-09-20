@@ -4,7 +4,7 @@
     <!-- 商品样例 -->
     <div class="list" v-for="item in goods_list" :key="item.serial" @click="detail(item)">
       <div class="list_left">
-        <img :src="'http://192.168.0.135:3000/img/'+item.g_img+'.jpg'" alt="" />
+        <img :src="'http://localhost:3000/img/'+item.g_img+'.jpg'" alt="" />
       </div>
       <div class="list_right">
         <div class="goods_sample">
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     shuju(res) {
-      this.$http.post("http://192.168.0.135:3000/s_goods_type", {
+      this.$http.post("http://localhost:3000/s_goods_type", {
         g_type: res||"原粮",
       }).then((res)=> {
         this.goods_list = res.data.value

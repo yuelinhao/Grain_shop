@@ -10,7 +10,7 @@
             <span class="sel_bottom_list" v-for="item,index in lists" :key="index">
                 <div class="sel_bottom_list_img" @click="to_detail(item)">
                     <div>
-                        <img :src="'http://192.168.0.135:3000/img/'+item.g_img+'.jpg'" alt="">
+                        <img :src="'http://localhost:3000/img/'+item.g_img+'.jpg'" alt="">
                     </div>
                 </div>
                 <div class="sel_bottom_list_price">￥{{item.g_price}}</div>
@@ -23,7 +23,7 @@
 <script>
 export default {
     created(){
-        this.$http.get('http://192.168.0.135:3000/hot_goods').then((res)=> {
+        this.$http.get('http://localhost:3000/hot_goods').then((res)=> {
             this.lists = res.data.value
         })
     },

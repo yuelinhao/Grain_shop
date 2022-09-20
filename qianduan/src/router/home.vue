@@ -122,7 +122,7 @@ export default {
     l_click(res) {
       // this.$http({
       //   method:"POST",
-      //   url:"http://192.168.0.135:3000/s_goods_type",
+      //   url:"http://localhost:3000/s_goods_type",
       //   data:{
       //     g_type:res
       //   }

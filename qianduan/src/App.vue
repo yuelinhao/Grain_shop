@@ -9,7 +9,7 @@
           <div class="shopping_top_img">
             <img
               :src="
-                'http://192.168.0.135:3000/img/' + goods_retail.g_img + '.jpg'
+                'http://localhost:3000/img/' + goods_retail.g_img + '.jpg'
               "
               alt=""
               style="width: 21vw; height: 28vw"
@@ -102,15 +102,15 @@ watch: {
       mima +=item
     })
     if(mima.length == 6) {
-      // this.$http.post('http://192.168.0.135:3000/pay_password',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_pay_pw:}).then((res)=> {
+      // this.$http.post('http://localhost:3000/pay_password',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_pay_pw:}).then((res)=> {
       //   console.log(res);
       // })
-      this.$http.post('http://192.168.0.135:3000/get_user_info',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
+      this.$http.post('http://localhost:3000/get_user_info',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
         if(res.data.value[0].user_money >= this.money) {
-          this.$http.post('http://192.168.0.135:3000/pay_password',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_pay_pw:mima}).then((res)=> {
+          this.$http.post('http://localhost:3000/pay_password',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_pay_pw:mima}).then((res)=> {
           console.log(res);
           if(res.data.msg == '密码正确') {
-             this.$http.post('http://192.168.0.135:3000/pay_money',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_money:this.money}).then((res)=> {
+             this.$http.post('http://localhost:3000/pay_money',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_money:this.money}).then((res)=> {
                 this.$message.success('支付成功')
                 let name_arr = []
                 let g_arr = []
@@ -123,8 +123,8 @@ watch: {
                 this.input_arr.shift()
                 var o_id = sessionStorage.getItem('shijian')//new Date().getTime()// +new Date()
                 
-                this.$http.post('http://192.168.0.135:3000/delete_shop_car',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,g_name_arr:JSON.stringify(name_arr)})
-                this.$http.post('http://192.168.0.135:3000/o_pay',{
+                this.$http.post('http://localhost:3000/delete_shop_car',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,g_name_arr:JSON.stringify(name_arr)})
+                this.$http.post('http://localhost:3000/o_pay',{
                   o_id,
                   o_status:1,
                   g_arr:JSON.stringify(g_arr),
@@ -176,7 +176,7 @@ watch: {
     open2() {
       if (this.num >= 1) {
         this.isModal = 0;
-        this.$http.post("http://192.168.0.135:3000/add_shop_car", {
+        this.$http.post("http://localhost:3000/add_shop_car", {
           user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
           g_name: this.goods_retail.g_name,
           g_number: this.num,

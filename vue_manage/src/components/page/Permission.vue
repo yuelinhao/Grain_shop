@@ -83,7 +83,7 @@
             <div class="chat_message" ref="message">
               <div class="one_message" v-for="(item, index) in message_list" :key="index">
                 <div v-if="item.user_from == user_from">
-                  <span class="touxiang"><img :src="`http://192.168.0.135:3000/img/${item.client_img}.jpg`"></span>
+                  <span class="touxiang"><img :src="`http://localhost:3000/img/${item.client_img}.jpg`"></span>
                   <span class="neirong">{{item.user_message}}</span>
                   <span class="shijian">{{format_time(item.m_time)}}</span>
                 </div>
@@ -152,7 +152,7 @@
               if (index == 0) {
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/get_allChat',
+                  url: 'http://localhost:3000/get_allChat',
                   data: {
                     m_status: 0,
                     user_to: '666666'
@@ -164,7 +164,7 @@
               } else if (index == 2) {
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/get_allChat',
+                  url: 'http://localhost:3000/get_allChat',
                   data: {
                     m_status: 2,
                     user_to: '666666'
@@ -176,7 +176,7 @@
               } else if (index == 1) {
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/get_allChat',
+                  url: 'http://localhost:3000/get_allChat',
                   data: {
                     m_status: 1,
                     user_to: '666666'
@@ -202,7 +202,7 @@
             get_chats() {
               axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/get_chat',
+                url: 'http://localhost:3000/get_chat',
                 data: {
                   user_from: this.user_from
                 }
@@ -224,7 +224,7 @@
                   console.log(res);
                   axios({
                     method: 'POST',
-                    url: 'http://192.168.0.135:3000/save_chat',
+                    url: 'http://localhost:3000/save_chat',
                     data: {
                       user_from: JSON.parse(localStorage.getItem('boss_info')).user_acc,
                       user_to: this.user_from,
@@ -236,7 +236,7 @@
                     
                     axios({
                       method: 'POST',
-                      url: 'http://192.168.0.135:3000/change_message',
+                      url: 'http://localhost:3000/change_message',
                       data: {
                         user_from: this.user_from,
                         m_status: 1
@@ -257,7 +257,7 @@
                 let bb = aa.user_from
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/change_message',
+                  url: 'http://localhost:3000/change_message',
                   data: {
                     user_from: bb,
                     m_status: 1
@@ -273,7 +273,7 @@
                 let bb = aa.user_from
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/change_message',
+                  url: 'http://localhost:3000/change_message',
                   data: {
                     user_from: bb,
                     m_status: 2
@@ -289,7 +289,7 @@
                 let bb = aa.user_from
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/change_message',
+                  url: 'http://localhost:3000/change_message',
                   data: {
                     user_from: bb,
                     m_status: 1
@@ -301,7 +301,7 @@
             all_change(aa, bb) {
               axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/change_allMessage',
+                url: 'http://localhost:3000/change_allMessage',
                 data: {
                   now_status: aa,
                   m_status: bb

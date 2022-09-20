@@ -9,7 +9,7 @@
         <div class="list" v-for="item in goods_list" :key="item.serial" @click="detail(item)">
           <div class="list_left">
             <img
-              :src="'http://192.168.0.135:3000/img/' + item.g_img + '.jpg'"
+              :src="'http://localhost:3000/img/' + item.g_img + '.jpg'"
               alt=""
             />
           </div>
@@ -49,7 +49,7 @@ export default {
       if(g_type) {
         this.$http({
           method:"POST",
-          url:'http://192.168.0.135:3000/'+method+'',
+          url:'http://localhost:3000/'+method+'',
           data:{
             g_type
           }
@@ -59,7 +59,7 @@ export default {
       } else {
         this.$http({
           method:"GET",
-          url:'http://192.168.0.135:3000/all_goods',
+          url:'http://localhost:3000/all_goods',
         }).then((res)=> {
           this.goods_list = res.data.value
         })

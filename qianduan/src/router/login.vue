@@ -141,7 +141,7 @@ export default {
             return;
           }
           this.$http
-            .post("http://192.168.0.135:3000/f_login", {
+            .post("http://localhost:3000/f_login", {
               account: this.input,
               password: this.user.password,
             })

@@ -40,8 +40,8 @@ export default {
   },
   created() {
     // this.price = this.$route.params.price;
-    // this.$http.post('http://192.168.0.135:3000/')
-    this.$http.post('http://192.168.0.135:3000/get_user_info',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
+    // this.$http.post('http://localhost:3000/')
+    this.$http.post('http://localhost:3000/get_user_info',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
       // console.log(res.data.value);
       this.my_user = res.data.value
       this.price = res.data.value[0].user_money

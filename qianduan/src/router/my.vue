@@ -18,7 +18,7 @@
           <img
             :src="
               my_user[0].user_img
-                ? 'http://192.168.0.135:3000/img/' +
+                ? 'http://localhost:3000/img/' +
                   my_user[0].user_img +
                   '.jpg'
                 : avatar
@@ -122,7 +122,7 @@
 export default {
   created() {
     this.$http
-      .post("http://192.168.0.135:3000/get_user_info", {
+      .post("http://localhost:3000/get_user_info", {
         user_acc: JSON.parse(sessionStorage.getItem("user"))[0].user_acc,
       })
       .then((res) => {

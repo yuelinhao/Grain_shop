@@ -55,7 +55,7 @@
 import Vue from 'vue'
 export default {
     created() {
-        this.$http.post('http://192.168.0.135:3000/get_address', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
+        this.$http.post('http://localhost:3000/get_address', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
             this.msg = res.data.value
         })
     },
@@ -100,8 +100,8 @@ export default {
         },
         shan_chu_fn(index) {
             let quer_id = this.msg[index].address_id
-            this.$http.post('http://192.168.0.135:3000/delete_address', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc, address_id:quer_id }).then(() => {
-                this.$http.post('http://192.168.0.135:3000/get_address', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
+            this.$http.post('http://localhost:3000/delete_address', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc, address_id:quer_id }).then(() => {
+                this.$http.post('http://localhost:3000/get_address', { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc }).then((res) => {
                     // console.log(res.data.value);
                     this.msg = res.data.value
                 })
@@ -113,7 +113,7 @@ export default {
         back_my_msg(item) {
             this.items = item
             this.$router.push({name:'my_msg',params:{item}})
-            this.$http.post('http://192.168.0.135:3000/get_user_info2', 
+            this.$http.post('http://localhost:3000/get_user_info2', 
             { user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc, user_name:item.user_name2, }).then((res) => {
                 // console.log(res.data.value);
                 // this.msg = res.data.value

@@ -132,7 +132,7 @@ export default {
             fd.append('g_img_xinxi', this.img_detail[0]);
             axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/add_goods',
+                url: 'http://localhost:3000/add_goods',
                 data: fd
             }).then((val) => {
                 console.log(val);
@@ -162,7 +162,7 @@ export default {
               fs.append('g_img_lun', this.img_lunbo[i])
               axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/add_goods_imgs',
+                url: 'http://localhost:3000/add_goods_imgs',
                 data: fs
               }).then((val) => {
                 console.log(val);

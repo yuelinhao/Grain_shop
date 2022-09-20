@@ -15,7 +15,7 @@
         <div v-if="item.user_from != '666666'" class="kefu_message">
           <span class="shijian2">{{format_time(item.m_time)}}</span>
           <span class="neirong2">{{item.user_message}}</span>
-          <span class="touxiang"><img :src="`http://192.168.0.135:3000/img/${user_img}.jpg`"></span>                    
+          <span class="touxiang"><img :src="`http://localhost:3000/img/${user_img}.jpg`"></span>                    
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@ export default {
     this.get_message()
     axios({
       method: 'POST',
-      url: 'http://192.168.0.135:3000/get_user_info',
+      url: 'http://localhost:3000/get_user_info',
       data: {
         user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc
       }
@@ -49,7 +49,7 @@ export default {
     })
     axios({
       method: 'POST',
-      url: 'http://192.168.0.135:3000/get_chat',
+      url: 'http://localhost:3000/get_chat',
       data: {
         user_from: JSON.parse(sessionStorage.getItem('user'))[0].user_acc
       }
@@ -86,7 +86,7 @@ export default {
           console.log(res);
           axios({
                 method: 'POST',
-                url: 'http://192.168.0.135:3000/get_user_info',
+                url: 'http://localhost:3000/get_user_info',
                 data: {
                   user_acc: JSON.parse(sessionStorage.getItem('user'))[0].user_acc
                 }
@@ -94,7 +94,7 @@ export default {
                 let {user_img} = val.data.value[0]
                 axios({
                   method: 'POST',
-                  url: 'http://192.168.0.135:3000/save_chat',
+                  url: 'http://localhost:3000/save_chat',
                   data: {
                     user_from: JSON.parse(sessionStorage.getItem('user'))[0].user_acc,
                     user_to: '666666',
@@ -105,7 +105,7 @@ export default {
                   console.log('保存成功');
                   axios({
                     method: 'POST',
-                    url: 'http://192.168.0.135:3000/get_chat',
+                    url: 'http://localhost:3000/get_chat',
                     data: {
                       user_from: JSON.parse(sessionStorage.getItem('user'))[0].user_acc
                     }
@@ -127,7 +127,7 @@ export default {
         console.log(message)
         axios({
             method: 'POST',
-            url: 'http://192.168.0.135:3000/get_chat',
+            url: 'http://localhost:3000/get_chat',
             data: {
               user_from: JSON.parse(sessionStorage.getItem('user'))[0].user_acc
             }
