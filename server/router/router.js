@@ -126,6 +126,10 @@ router.post('/f_reg', async (ctx, next) => {
             connection.query(sql_str2, function(error, results, reject) {
               if (error) throw error
             })
+            let sql_str3 = `insert into user_address (user_acc) values ('${account}')`
+            connection.query(sql_str3, function(error, results, reject) {
+              if (error) throw error
+            })
             let aa = {
               msg: '注册成功'
               // value: results
@@ -584,7 +588,7 @@ router.get('/new_goods', async (ctx, next) => {
 router.post('/add_address', async (ctx, next) => {
   let { user_acc, user_address, address_id, more_address, user_name, user_phone } = ctx.request.body
   ctx.body = await new Promise((resolve, reject) => {
-    let sql_str = `insert into user_address (user_acc,user_ress,address_id,more_address,user_name2,user_phone3) values ('${user_acc}','${user_address}','${address_id}','${more_address}','${user_name}','${user_phone}')`
+    let sql_str = `update user_address set user_ress='${user_address}',address_id='${address_id}',more_address='${more_address}',user_name2='${user_name}',user_phone3='${user_phone}' where user_acc='${user_acc}'`
     connection.query(sql_str, function(error, results, fields) {
       if (error) {
         throw error

@@ -76,9 +76,10 @@ export default {
         this.$message.warning("请输入金额");
         return;
       }
-      this.$router.push({name: "balance"});
+      
       this.$http.post('http://localhost:3000/f_money',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc,user_money:this.$refs.aa_a.value}).then((res)=> {
         // console.log(res)
+        this.$router.push({ name: "balance" });
       })
     },
   },

@@ -8,7 +8,7 @@
       <div class="money">
         <img src="../assets/钱.png" alt="" />
         <span>我的零钱</span>
-        <div class="beikengdeqian" v-if="my_user.length >0">
+        <div class="beikengdeqian" v-if="my_user.length >= 0">
           <span class="icon_qian">￥</span
           ><span class="beikeng_num" >{{price}}</span>
         </div>
