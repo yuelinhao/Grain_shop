@@ -21,7 +21,7 @@
   </div>
 </template>
   
-  <script>
+<script>
 export default {
 
   data() {
@@ -43,14 +43,17 @@ export default {
     // this.$http.post('http://localhost:3000/')
     this.$http.post('http://localhost:3000/get_user_info',{user_acc:JSON.parse(sessionStorage.getItem('user'))[0].user_acc}).then((res)=> {
       // console.log(res.data.value);
-      this.my_user = res.data.value
-      this.price = res.data.value[0].user_money
+      if (res.data.value[0]) {
+        this.my_user = res.data.value
+        this.price = res.data.value[0].user_money
+      }
+      
     })
   },
 };
 </script>
   
-  <style scoped>
+<style scoped>
 .el-icon-arrow-left {
   color: black;
   font-size: 24px;

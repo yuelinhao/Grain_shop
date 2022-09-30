@@ -107,7 +107,7 @@
   </div>
 </template>
   
-  <script>
+<script>
   import Vue from 'vue'
 export default {
   created() {
@@ -116,9 +116,12 @@ export default {
         user_acc: JSON.parse(sessionStorage.getItem("user"))[0].user_acc,
       })
       .then((res) => {
-        this.msg = res.data.value[0];
-        // console.log(this.msg);
-        this.src = `http://localhost:3000/img/${res.data.value[0].user_img}.jpg`
+        if (res.data.value[0]) {
+          this.msg = res.data.value[0];
+          // console.log(this.msg);
+          this.src = `http://localhost:3000/img/${res.data.value[0].user_img}.jpg`
+        }
+        
       });
     this.items = this.$route.params.item;
     this.status = Vue.prototype.$status
@@ -127,7 +130,15 @@ export default {
     return {
       src: "",
       imageUrl: "",
-      msg: [],
+      msg: {
+        user_acc: JSON.parse(sessionStorage.getItem("user"))[0].user_acc,
+        user_name: '',
+        user_sex: '',
+        user_phone: '',
+        user_phone2: '',
+        user_ress2: '',
+        more_address2: ''
+      },
       user_addres: null,
       items: [],
       status: ''
@@ -218,7 +229,7 @@ export default {
 };
 </script>
   
-  <style scoped>
+<style scoped>
 /* 返回按钮 */
 .gerenxinxi .el-icon-arrow-left {
   color: white;
