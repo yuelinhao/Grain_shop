@@ -3,8 +3,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'admin123',
-  database: 'vue_shop'
+  password: '123456',
+  database: 'yue_shop'
 });
 
 connection.connect();
